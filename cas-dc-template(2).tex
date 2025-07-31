@@ -1,0 +1,687 @@
+%% 
+%% Copyright 2019-2021 Elsevier Ltd
+%% 
+%% This file is part of the 'CAS Bundle'.
+%% --------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'CAS Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for cas-dc documentclass for 
+%% double column output.
+
+\documentclass[a4paper,fleqn]{cas-dc}
+
+% If the frontmatter runs over more than one page
+% use the longmktitle option.
+
+%\documentclass[a4paper,fleqn,longmktitle]{cas-dc}
+
+\usepackage[numbers,sort&compress]{natbib}
+%\usepackage[authoryear]{natbib}
+%\usepackage[authoryear,longnamesfirst]{natbib}
+\usepackage{caption}
+\captionsetup[figure]{labelfont={bf}, labelformat={default}, labelsep=period, name={Fig.}}
+\usepackage[capitalise]{cleveref}
+\usepackage{caption}
+\captionsetup[table]{labelsep=newline,singlelinecheck=false,skip=0pt,labelfont=bf}
+
+
+
+
+
+%%%Author macros
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+\tsc{WGM}
+\tsc{QE}
+%%%
+
+% Uncomment and use as if needed
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newdefinition{rmk}{Remark}
+%\newproof{pf}{Proof}
+%\newproof{pot}{Proof of Theorem \ref{thm}}
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+\let\printorcid\relax % 可去掉页面下方的ORCID(s)
+
+% Short title
+% \shorttitle{<short title of the paper for running head>} 
+\shorttitle{Design of an Adaptive Infrared Image Enhancement System Integrating Dynamic Range Control and Gain Estimation}    
+
+% Short author
+% \shortauthors{<short author list for running head>}
+\shortauthors{Wencong Wang et al.}
+
+% Main title of the paper
+\title[mode = title]{Design of an Adaptive Infrared Image Enhancement System Integrating Dynamic Range Control and Gain Estimation}  
+
+% Title footnote mark
+% eg: \tnotemark[1]
+% \tnotemark[<tnote number>] 
+\tnotemark[1,2]
+
+% Title footnote 1.
+% eg: \tnotetext[1]{Title footnote text}
+% \tnotetext[<tnote number>]{<tnote text>} 
+\tnotetext[1]{This document is the results of the research project funded by the National Science Foundation.}
+\tnotetext[2]{The second title footnote which is a longer text matter to fill through the whole text width and overflow into another line in the footnotes area of the first page.}
+
+% First author
+%
+% Options: Use if required
+% eg: \author[1,3]{Author Name}[type=editor,
+%       style=chinese,
+%       auid=000,
+%       bioid=1,
+%       prefix=Sir,
+%       orcid=0000-0000-0000-0000,
+%       facebook=<facebook id>,
+%       twitter=<twitter id>,
+%       linkedin=<linkedin id>,
+%       gplus=<gplus id>]
+
+% \author[<aff no>]{<author name>}[<options>]
+
+% Corresponding author indication
+% \cormark[<corr mark no>]
+
+% Footnote of the first author
+% \fnmark[<footnote mark no>]
+
+% Email id of the first author
+% \ead{<email address>}
+
+% URL of the first author
+% \ead[url]{<URL>}
+
+% Credit authorship
+% eg: \credit{Conceptualization of this study, Methodology, Software}
+% \credit{<Credit authorship details>}
+
+% Address/affiliation
+% \affiliation[<aff no>]{organization={},
+%             addressline={}, 
+%             city={},
+% %          citysep={}, % Uncomment if no comma needed between city and postcode
+%             postcode={}, 
+%             state={},
+%             country={}}
+
+% \author[<aff no>]{<author name>}[<options>]
+
+% Footnote of the second author
+% \fnmark[2]
+
+% Email id of the second author
+% \ead{}
+
+% URL of the second author
+% \ead[url]{}
+
+% Credit authorship
+% \credit{}
+
+% Address/affiliation
+% \affiliation[<aff no>]{organization={},
+%             addressline={}, 
+%             city={},
+% %          citysep={}, % Uncomment if no comma needed between city and postcode
+%             postcode={}, 
+%             state={},
+%             country={}}
+
+% Corresponding author text
+% \cortext[1]{Corresponding author}
+
+% Footnote text
+% \fntext[1]{}
+
+% For a title note without a number/mark
+%\nonumnote{}
+
+
+
+
+
+\author[1,2]{Wencong Wang}
+\ead{wangwencong23@mails.ucas.ac.cn}
+\credit{Data curation, Writing - Original draft preparation}
+\author[1]{Guoliang Tang}[role=Co-ordinator]
+\ead{tangguoliang@ucas.ac.cn}
+\author[1]{Shouzheng Zhu}
+\ead{zhushouzheng@ucas.ac.cn}
+\author[1]{Shijie Liu}
+\ead{liushijie@ucas.ac.cn}
+\author[1,2]{Wenli Wu}
+\ead{wuwenli22@mails.ucas.ac.cn}
+\author[1,2]{Hongyu Chen}
+\ead{chenhongyu23@mails.ucas.ac.cn}
+\author[1,2]{Dunping Li}
+\ead{lidunping23@mails.ucas.ac.cn}
+\author[1,2]{Jingwen Miao}
+\ead{miaojingwen23@mails.ucas.ac.cn}
+\author[1]{Yuchen Zhang}
+\ead{dyzyc@qq.com}
+\credit{Software}
+\author[1,2,3]{Chunlai Li}
+\cormark[1] 
+\ead{lichunlai@mail.sitp.ac.cn}
+\credit{Writing - Original draft preparation}
+\author[1,2,3]{Jianyu Wang}
+\ead{jywang@mail.sitp.ac.cn}
+
+
+\address[1]{Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou 310024, China}
+\address[2]{University of Chinese Academy of Sciences,  Beijing 100049, China}
+\address[3]{Shanghai Institute of Technical Physics, Chinese Academy of Sciences, Shanghai 200083, China}
+
+\cortext[1]{Corresponding author} 
+\cortext[2]{Principal corresponding author} 
+
+% Here goes the abstract
+\begin{abstract}
+Uncooled infrared focal plane array (UFPA) detectors are often challenged by limited dynamic range and significant image non-uniformity under complex imaging conditions. To overcome the limitations of fixed dynamic range and the inflexibility of conventional two-point calibration, we propose an adaptive method for joint dynamic range and gain adjustment. Based on an in-depth analysis of the CTIA (Capacitive Transimpedance Amplifier) readout circuit, we develop a dynamic range optimization strategy that combines bias voltage control with adaptive integration time adjustment, allowing real-time adaptation to varying scene brightness. To suppress non-uniformity noise caused by dynamic range variation, we leverage its temporally low-frequency and spatially invariant characteristics for separation via Fourier transform, followed by gain parameter correction. Experimental results indicate that the proposed method improves image clarity and contrast in low thermal contrast scenes and enhances adaptability in thermally dynamic environments. Moreover, the gain estimation algorithm achieves efficient compensation without the need for a blackbody source, with rapid convergence within a few hundred frames. A prototype infrared camera incorporating the proposed dual-adaptive approach delivers high-quality imaging and robust environmental adaptability in handheld applications, validating the practical viability of the method.
+\end{abstract}
+
+% Use if graphical abstract is present
+%\begin{graphicalabstract}
+%\includegraphics{}
+%\end{graphicalabstract}
+
+% Research highlights
+\begin{highlights}
+\item highlight-1
+\item highlight-2
+\item highlight-3
+\end{highlights}
+
+% Keywords
+% Each keyword is seperated by \sep
+\begin{keywords}
+Infrared imaging systems \sep 
+Non-uniformity correction \sep 
+Dynamic range enhancement \sep 
+CTIA readout circuits \sep 
+Real-time image processing \sep 
+FPGA implementation
+\end{keywords}
+
+\maketitle
+
+% Main text
+\section{Introduction}
+Uncooled infrared focal plane array (UFPA) detectors operate at room temperature without requiring cryogenic cooling systems. They offer advantages such as compact size, low power consumption, and cost-effectiveness, which makes them suitable for a wide range of applications, including gas monitoring, fire detection, and remote sensing\citep{yadav_advancements_2022,zhang_real-time_2025}. Despite their high sensitivity, current uncooled infrared imaging systems still face challenges such as limited dynamic range, low signal-to-noise ratio, and severe nonuniform noise, thereby impairing image detail restoration and target recognition performance \citep{zhou_scene-based_2017,zuo_registration_2012,wang_raw_2024}.
+In particular, infrared imaging under complex illumination conditions often suffers from overexposure or loss of detail. To accommodate the detection of infrared scenes across a wide range of temperatures, the dynamic range of infrared focal plane arrays is typically configured to be broad and fixed \citep{belenky_method_2004,tanaka_performance_2003}. However, in real-world scenarios, it is uncommon for the thermal distribution of a scene to span the full dynamic range of an infrared camera \citep{teledyne_flir_free_nodate,asl_thermal_2014,wu_thermal_2014}. Without adaptive adjustment of the dynamic range in response to scene variations, a considerable portion of the detector’s capability is wasted, thereby directly reducing the temperature resolution of the resulting infrared images.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig1.png}
+    \caption{Adjusting the CTIA circuit and suppresses the associated circuit-induced noise fully utilizes the dynamic range of the UFPA.}
+    \label{fig:fig1}
+\end{figure*}
+
+Dynamic range adjustment in infrared detectors is generally controlled by the bias voltage in the CTIA (Capacitive Transimpedance Amplifier) readout circuit\citep{seo_analog_2013}. However, differences in circuit characteristics, gain settings, and fabrication variations can introduce significant non-uniformity when adjusting the dynamic range, as shown in \cref{fig:fig1}. The traditional two-point calibration method is insufficient to compensate for these variations under changing bias voltages and integration times, thereby limiting its applicability in adaptive imaging systems.
+
+Infrared image non-uniformity primarily consists of gain-related and offset-related noise components. Gain noise arises from variations in pixel responsivity and optical path properties, leading to amplitude discrepancies under identical radiation conditions. Offset noise refers to baseline fluctuations in the absence of external radiation, which manifest as visible stripes and blotches, thereby degrading image quality and overall system performance\citep{liu_scene-based_2024}.
+To address these limitations, this study proposes an adaptive image enhancement scheme that integrates dynamic range control and gain estimation. We analyzed UFPA operating principles and developed an infrared imaging core system that combines bias voltage regulation with real-time image correction. Experimental results confirm the effectiveness of the proposed method in achieving adaptive dynamic range control and suppressing non-uniformity.
+
+\section{Principle}
+\subsection{Imaging Mechanism of UFPA and Readout Circuit Analysi}
+\label{subsec1}
+
+Uncooled focal plane array (UFPA) detectors operate by absorbing infrared radiation, resulting in a temperature change within the sensing material. This temperature variation is subsequently converted into an electrical signal via the temperature-dependent electrical properties of the material. Since the output signal from each individual pixel is extremely weak, high-performance, low-noise readout circuits are essential to ensure high-quality imaging performance.
+
+The CTIA readout circuit offers multiple advantages, such as low noise, consistent detector bias control, flexible integration capacitance design, wide dynamic range, and excellent uniformity and linearity\citep{johnson_focal-plane_2009}. A simplified schematic of the CTIA circuit, commonly employed in infrared focal plane arrays, is illustrated in \cref{fig:fig2}. It consists of a pixel input stage and an integrating amplifier stage. In the input stage, the upper transistor is connected to a reference pixel (Rb), controlled by bias voltages VBS and VBB, while the lower transistor is connected to an active pixel (Ra), controlled by VPB.
+
+The integration amplifier is implemented using a capacitive feedback operational amplifier, with a virtual ground set at VREF and the output taken at VOUT. The reference pixel stabilizes the baseline and suppresses common-mode noise, while the active pixel responds to incident infrared radiation and accumulates charge over time via the integration capacitor.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig2.png}
+    \caption{Schematic Diagram of UFPA CTIA Readout Circuit. The output voltage is controlled by adjusting the integration time and bias voltage.}
+    \label{fig:fig2}
+\end{figure}
+
+The operating principle of the CTIA circuit can be summarized as follows: during operation, switch S remains open, and the photocurrent generated by the active pixel is integrated by the capacitor. Once the integration period concludes, the subsequent circuitry samples the output voltage, VOUT. Thereafter, switch S is closed, and the active pixel Ra is reset to prepare for the next integration cycle\citep{nagata_cryogenic_2004,zhuo_low-noise_2021}. The corresponding voltage and current behaviors during this operation are described as follows:
+\begin{equation}
+% #1
+V_{\text{OUT}} = V_{\text{REF}} - \frac{1}{C_{\text{int}}} \int_{0}^{t_{\text{int}}} i\, dt
+\end{equation}
+\begin{equation}
+% #2
+i(d) = i_{\text{ref}} - i_{\text{active}} 
+= \frac{V_{BS} - V_{BB} - \left| V_{thp} \right|}{R_{\text{ref}}} 
+- \frac{V_{PB} - V_{thn}}{R_a(T)}
+\end{equation}
+\begin{equation}
+% #3
+V_{\text{OUT}} = V_{\text{REF}} 
+- \frac{t_{\text{int}}}{C_{\text{int}}} \cdot 
+\left( \frac{V_{BS} - V_{BB} - \left| V_{thp} \right|}{R_{\text{ref}}} 
+- \frac{V_{PB} - V_{thn}}{R_a(T)} \right)
+\end{equation}
+Based on Equation (3), the following conclusions can be drawn:
+
+1. Adjusting the difference between VBS and VBB results in a horizontal shift of the detector’s dynamic range along the temperature axis.
+
+2. Tuning VPB, integration time, and integration capacitance modifies the responsivity of the focal plane array, thereby affecting the effective temperature dynamic range.
+
+3. The detector output voltage is determined by the voltage across the integration capacitor accumulated during the integration period, superimposed on a fixed reference level.
+
+\subsection{Adaptive Dynamic Range Adjustment Algorithm}
+\label{subsec2}
+
+Based on the theoretical analysis above, the integration time governs the output signal’s dynamic range, while the bias voltage VBS controls its vertical placement on the voltage axis. Therefore, by adaptively adjusting both the integration time and VBS according to the distribution of the infrared image’s digital number (DN), the system can maximize utilization of the detector’s available dynamic range and enhance the thermal resolution of the infrared imaging system.
+
+The algorithm consists of the following steps, as summarized in \cref{fig:fig3}:
+
+1. Grayscale Histogram Analysis: Compute the histogram and cumulative histogram of the current frame, and identify key intensity thresholds corresponding to the 10\%, 50\%, and 90\% cumulative probability levels.
+
+2. Brightness Centering: Determine whether the median grayscale value falls within the target range of [8092, 8292]. If the median exceeds the upper bound (indicating overexposure), reduce VBS to shift the dynamic range toward higher temperature sensitivity. Conversely, if the median is below the lower bound (indicating underexposure), increase VBS to shift the range toward lower temperatures.
+
+3. Grayscale Spread Evaluation: If the 10\% threshold is below [1000, 2000] or the 90\% threshold exceeds [14383, 15383], the contrast distribution is overextended and requires compression. If the spread is overly narrow, dynamic range expansion is necessary.
+
+4.Dynamic Range Adjustment: When the dynamic range is insufficient, increase the integration time to enhance image contrast. If the dynamic range is excessive or saturation is detected, decrease the integration time to prevent overexposure and retain fine scene details.
+
+ \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig3.png}
+    \caption{Block Diagram of the Dynamic Range Adaptive Adjustment Algorithm. Real-time histogram analysis guides VBS adjustment for voltage-axis shifting and integration time tuning for dynamic range adaptation.}
+    \label{fig:fig3}
+\end{figure*}
+
+
+\subsection{Gain Estimation Algorithm for Non-uniformity Correction}
+\label{subsec2}
+\subsubsection{Related Research}
+
+Frequent changes in dynamic range result in corresponding variations in pixel gain, which compromise the stability of traditional two-point correction parameters. While offset correction can be periodically performed through shutter operations, the assumption of fixed gain becomes inadequate for maintaining image consistency and accuracy in dynamically changing scenarios.Therefore, an adaptive gain estimation strategy is necessary to ensure robust image correction under varying conditions.
+
+Shutterless non-uniformity correction algorithms can be broadly categorized into temporal, frequency, and spatial domain approaches.
+In the temporal domain, fixed pattern noise (FPN) remains relatively stable over time, while the scene content varies. This temporal variation can be exploited to isolate FPN\citep{liu_fpn_2019,zeng_adaptive_2015}. For instance, Li Dandan proposed a statistics-based method that emulates two-point correction using temporal statistics\citep{dandan_nonuniformity_2024}. However, it suffers from slow convergence and limited effectiveness in static scenes.
+
+In the frequency domain, FPN typically manifests as low-frequency components or periodic patterns. Techniques such as Fast Fourier Transform (FFT) filtering and wavelet transforms are commonly employed to isolate these components. For example, Wang Wenrui introduced a wavelet-RNN hybrid method for stripe noise removal\citep{wang_novel_2024}. Nevertheless, frequency-domain methods are often computationally intensive and susceptible to visual artifacts.
+
+In the spatial domain, methods analyze the relationships between neighboring pixels to estimate noise, frequently utilizing filters or convolutional neural networks\citep{kuang_single_2019,liu_strong_2023}. Yuyi Shao et al. introduced an approach to eliminate stripe noise from infrared images by employing least squares and spatial domain guided filtering\citep{shao_infrared_2021}. However, such approaches may introduce blurring, loss of fine details, and typically lack real-time processing capability.
+
+\subsubsection{Algorithm Structure}
+
+A linear response model is adopted to characterize the behavior of individual pixels\citep{liu_strong_2023}:
+
+\begin{equation}
+Y_n(x, y) = p_n(x, y) \cdot X_n(x, y) + q_n(x, y)
+\end{equation}
+where $X$ represents the incident infrared radiation intensity, $Y$ is the digital output of the detector pixel, $p$ denotes the pixel's response gain, and $q$ is the pixel's offset. The indices $\left(x,y\right)$ refer to the pixel's spatial location, and $n$ denotes the frame number.
+Based on this model, the detector output can be corrected as:
+\begin{equation}
+X_n(x, y) = K_n(x, y) \cdot Y_n(x, y) + B_n(x, y)
+\end{equation}
+where $K_n\left(x,y\right)=1/p_n\left(x,y\right)$;$B_n\left(x,y\right)=-q_n\left(x,y\right)/p_n\left(x,y\right)$;
+A hybrid-domain correction method is proposed, combining temporal, frequency, and spatial analysis to estimate pixel-wise gain and generate a correction map. The algorithm flow is illustrated in \cref{fig:fig4}. We assume that fixed pattern noise (FPN) remains temporally stable and spatially invariant within a short time window. Bias noise $B_n\left(x,y\right)$ is assumed to have been removed through periodic shutter-based correction.
+Under these assumptions, Equation (6) can be reformulated as follows: 
+\begin{equation}
+X_n(x, y) = K_n(x, y) \cdot Y_n(x, y)
+\end{equation}
+First, a logarithmic transform is applied to convert multiplicative gain into an additive form for subsequent processing:
+\begin{equation}
+\ln\left(X_n(x, y)\right) = \ln\left(K_n(x, y)\right) + \ln\left(Y_n(x, y)\right)
+\end{equation}
+A Fourier transform is subsequently applied to extract frequency components. 
+\begin{equation}
+F\left( \ln\left(X_n(x, y)\right) \right) = F\left( \ln\left(K_n(x, y)\right) \right) + F\left( \ln\left(Y_n(x, y)\right) \right)
+\end{equation}
+A first-order lag filter is used to filter out temporal low-frequency noise within the image sequence.
+\begin{equation}
+F\left( \ln K_n(x, y) \right) = (1 - \alpha) F\left( \ln K_n(x, y) \right) + \alpha \cdot \text{Mask} \cdot F\left( \ln Y_n(x, y) \right)
+\end{equation}
+The adaptive filter coefficient $\alpha_n\left(u,v\right)$ is computed based on the amplitude change rate:
+\begin{equation}
+\alpha_n(u,v) = 
+\begin{cases}
+\theta_k - d_n(u,v) \cdot \alpha_0, & d_n(u,v) < \theta_k \\
+0, & \text{otherwise}
+\end{cases}
+\end{equation}
+where $d_{n\left(u,v\right)}$ denotes the temporal rate of change in amplitude, and $\theta_k$ is the amplitude threshold.
+\begin{equation}
+d_n(u,v) = \frac{ \left| F\left( \ln Y_n(x,y) \right) - F\left( \ln Y_{n-1}(x,y) \right) \right| }
+{ \left| F\left( \ln Y_n(x,y) \right) \right| }
+\end{equation}
+To refine the estimation, a phase-based mask is constructed:
+\begin{equation}
+\text{Mask}_n(u,v) = 
+\begin{cases}
+1, & \Delta\phi_n(u,v) < \theta_\phi \\
+0, & \text{otherwise}
+\end{cases}
+\end{equation}
+This ensures proper handling of phase wrapping. The phase change $\mathrm{\Delta}\phi_nu$,$v$ is compared against a phase threshold $\theta_\phi$ to determine the mask.
+\begin{equation}
+\Delta\phi_n(u,v) = \min\left( |\phi_n(u,v) - \phi_{n-1}(u,v)|, 2\pi - |\phi_n(u,v) - \phi_{n-1}(u,v)| \right)
+\end{equation}
+By jointly evaluating both amplitude and phase variations, the fixed pattern noise components are effectively isolated. Applying an inverse Fourier transform followed by an exponential operation yields the gain map $K$, which is subsequently used to recover the incident radiation intensity $X$.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig4.png}
+    \caption{Gain Estimation and Non-uniformity Correction Algorithm Flow. Log transformation converts multiplicative to additive noise; In the frequency domain, gain noise is extracted based on inter-frame amplitude and phase variations using a first-order low-pass filter.}
+    \label{fig:fig4}
+\end{figure}
+
+\section{System Design}
+\subsection{Overall Hardware Designn}
+\label{subsec2}
+
+The system is based on the DALI VLD650 uncooled infrared focal plane array detector, which features a resolution of 640×480 pixels, a 17um pixel pitch, and a spectral response range of 8–14um. The overall hardware architecture, as shown \cref{fig:fig5}(a), consists of two major subsystems: a detector driver board and an FPGA core board. The detector driver board includes the infrared detector itself, a thermoelectric cooler (TEC) driver circuit, an ADC for image data acquisition, and a DAC for bias voltage control. The FPGA core board integrates the FPGA, flash memory, DDR memory, RS422 and LVDS interfaces, and power modules. It handles image timing control, buffering, basic preprocessing, and data transmission to the host computer or capture card for display and subsequent processing, as shown in \cref{fig:fig5}(e). The camera hardware components, mechanical housing, and the final physical prototype are shown in \cref{fig:fig5}(b), (c), and (d), respectively.
+
+ \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig5.png}
+    \caption{(a)Overall Hardware Architecture Block Diagram(b) Physical Implementation of System Hardware Design(c) Camera Design Structural Diagram(d) Physical Camera(e) System Structural Diagram.}
+    \label{fig:fig5}
+\end{figure}
+
+\subsection{FPGA and Software Platform Design}
+\label{subsec2}
+
+The system is implemented on a Xilinx FPGA platform and comprises the following key functional modules:
+Timing Logic Module: Manages the ADC sampling clock, data framing, buffering, and stream output to ensure continuity and correctness of image capture.
+
+MicroBlaze Soft-Core Processor: Serves as the central controller, responsible for UART protocol parsing, SPI/I²C bus management, detector parameter configuration, and real-time bias adjustment via remote host commands.
+
+Image Processing Module: Implements key algorithms—such as gain estimation and non-uniformity correction—using Xilinx HLS (High-Level Synthesis).
+
+As shown in \cref{fig:fig6}, the MicroBlaze reads image frames from DDR memory at 3-second intervals, calculates grayscale histograms, and adjusts the bias voltage (VBS) and integration time accordingly. The VBS control signal is sent via SPI to the DAC80508 to achieve high-precision analog output.
+
+To enable dynamic management of the integration time, a custom AXI control interface (AXI-Port) has been developed. It facilitates register-based control over integration time, gain, and other imaging parameters. In addition, two HLS-based IP cores have been implemented: the Non-Uniformity Correction module (KB-cal) and the Gain Estimation module (FFT-K-cal).
+
+The Non-Uniformity Correction module applies pixel-wise gain and bias correction to the infrared detector’s output, processing image data in AXI Stream (AXIS) format. Specifically, the bias data acquired during shutter closure is stored in DDR for compensation, while the gain coefficient matrix is dynamically updated by the Gain Estimation module. Since FFT operations involve a large number of complex numbers and operate on full image frames, which require significant memory resources, the system adopts a hybrid caching architecture. Intermediate data is stored in BRAM, whereas the final image and gain coefficients are transferred to the DDR cache via VDMA, effectively alleviating on-chip memory pressure.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig6.png}
+    \caption{Data flow path through critical modules of the system.}
+    \label{fig:fig6}
+\end{figure}
+
+
+
+
+\section{Results and Discussion}
+\subsection{Dynamic Range Adaptation Test}
+\label{subsec2}
+
+To evaluate the effectiveness of the adaptive dynamic range algorithm, a comparative experiment was conducted using two temperature-controlled blackbody sources and a standard resolution chart. One blackbody was maintained at a constant temperature of 20°C, while the other varied across a range of temperatures to simulate different target thermal conditions. This setup enabled the evaluation of the system’s adaptability to scene variations. Resolution charts were employed to ensure consistent spatial detail across scenes.
+
+The RMS (root mean square) contrast of the resolution chart images was measured under both adaptive and fixed dynamic range configurations to assess the effectiveness of contrast enhancement. RMS is a commonly used image contrast metric that measures the standard deviation of image gray-level values\citep{ionescu_study_2014}. For an image with pixel grayscale values I(i,j), the RMS contrast can be defined as:
+\begin{equation}
+\text{RMS} = \sqrt{ \frac{1}{MN} \sum_{i=1}^{M} \sum_{j=1}^{N} \left( I(i,j) - \bar{I} \right)^2 }
+\end{equation}
+
+where $\bar{I}$ represents the average grayscale value of the image, and M and N are the number of rows and columns in the image, respectively. A larger RMS value indicates a more dispersed grayscale distribution and, consequently, higher image contrast.
+
+Table 1. RMS Contrast of Images Before and After Adaptive Dynamic Range Activation Under Various Target Scene Temperature Differences
+
+\begin{table*}[t]
+  \centering
+  \caption{RMS Contrast of Images Before and After Adaptive Dynamic Range Activation Under Various Target Scene Temperature Differences}
+  \label{table1}
+  \small            % 字体缩小一级
+  \setlength{\tabcolsep}{4pt}  % 列间距略收紧
+  \begin{tabular*}{0.8\linewidth}{@{\extracolsep{\fill}}lcccccccc@{}}
+\hline
+Temperature Difference (°C) & 30      & 40      & 60     & 70     & 110    & 120    & 160    & 170    \\ \hline
+RMS (Fixed Range)           & 595.61  & 406.56  & 524.81 & 533.29 & 459.57 & 585.01 & 367.09 & 577.60 \\
+RMS (Adaptive)              & 1093.12 & 1162.48 & 611.68 & 647.44 & 357.06 & 307.20 & 301.19 & 230.9  \\ \hline
+  \end{tabular*}
+\end{table*}
+
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig7.png}
+    \caption{(a) RMS Contrast of Images with Adaptive and Fixed Dynamic Ranges Under Various Target Scene Temperature Differences(b) Using a fixed dynamic range leads to abnormal imaging performance when the target temperature difference exceeds 120°C.}
+    \label{fig:fig7}
+\end{figure*}
+
+
+Table 1 shows the RMS contrast of resolution chart images before and after activation of the adaptive dynamic range algorithm across various target scene temperature differences. From the data, we observe that under low target temperature differences (30–70°C), activating the adaptive dynamic range algorithm significantly improves RMS contrast. The improvements were most pronounced at 30°C and 40°C, with 3.38-fold and 1.66-fold increases, respectively. This demonstrates the algorithm's effectiveness in expanding the grayscale utilization range and enhancing image detail in low-dynamic scenes.
+
+In scenarios involving large ambient–target temperature differences (120–170°C), images captured without dynamic range adaptation exhibited considerable saturation or overflow, resulting in the loss of critical scene information, as shown in \cref{fig:fig7}(b). In contrast, with the adaptive function enabled, the camera continued to operate normally, and the resulting image contrast remained high. Although the enhancement in RMS contrast diminished compared to low-temperature difference conditions, it still surpassed that of the fixed dynamic range setting. Additionally, the fixed dynamic range configuration exhibited limited variation in RMS contrast across different ambient temperatures, indicating its inability to adapt to broader scene variations.
+
+
+
+\cref{fig:fig8} illustrates the effect of adaptive adjustment on resolution charts captured under varying thermal conditions. Under a fixed dynamic range (top row), contrast variation is minimal, and detail rendering is limited. With the adaptive algorithm enabled (bottom row), resolution contrast gradually decreases as thermal variation increases, which is consistent with the observed RMS contrast trends. This indicates that grayscale stretching is effectively applied in response to increasing thermal dynamics, albeit with a trade-off in local contrast.
+
+  \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig8.png}
+    \caption{Observation of the same resolution target under varying target temperature differences. }
+    \label{fig:fig8}
+\end{figure*}
+
+The first row displays images captured with a fixed dynamic range, while the second row shows images captured with an adaptive dynamic range.
+These experimental results validate that the proposed adaptive dynamic range algorithm consistently improves infrared image contrast across a variety of scenarios, with particularly significant gains in low-contrast environments.
+
+\subsection{Subjective and Objective Evaluation of the Gain Estimation Algorithm}
+\label{subsec2}
+
+The proposed algorithm was applied to three real infrared video sequences and compared against two state-of-the-art methods:
+FPNE (Fixed Pattern Noise Estimation): estimates fixed pattern noise through temporal filtering of adjacent pixel differences\citep{liu_fpn_2019}.
+
+NUCSP (Non-uniformity Correction via Statistical Properties): employs statistical rearrangement of time-domain pixel responses for non-uniformity estimation\citep{dandan_nonuniformity_2024}.
+
+For evaluation, we employed two widely accepted metrics: the Non-Uniformity Evaluation Score (NUES) and Roughness\citep{svensson_evaluation_2013,sui_novel_2013}. NUES is a no-reference metric that quantifies residual stripe noise or fixed pattern artifacts by calculating the RMS deviation of the pixel response V(i,j) as a percentage of the average response $\bar{v}$:
+\begin{equation}
+\text{NUES} = \frac{1}{\bar{V}} \sqrt{ \frac{1}{MN} \sum_{i=1}^{M} \sum_{j=1}^{N} \left( V(i,j) - \bar{V} \right)^2 }
+\end{equation}
+where $\bar{V}$ is the mean pixel response, and MMM and NNN represent the image height and width, respectively.
+\begin{equation}
+\bar{V} = \frac{1}{MN} \sum_{i=1}^{M} \sum_{j=1}^{N} V(i,j)
+\end{equation}
+Roughness is defined as follows:
+\begin{equation}
+\text{Roughness} = \frac{ \| h_1 * I \|_1 + \| h_2 * I \|_1 }{ \| I \|_1 }
+\end{equation}
+where $h_1=[-1,1]$ is the horizontal gradient operator and $h_1=[-1,1]-1$ is the vertical gradient operator.$I$ is the input image, $*$ denotes convolution, and ${\parallel.\parallel}_1$ represents the $L1-norm$. This metric effectively measures the total absolute gradient across both directions, reflecting structural roughness in the image.
+
+Table 2 presents the average NUES and Roughness values for each method across three real-world video datasets. Our method (“Ours”) outperforms the FPNE method with respect to both NUES and Roughness, and achieves results comparable to the NUCSP algorithm. Fundamentally speaking, however, the NUCSP algorithm requires a large volume of image data for batch processing, whereas our approach enables real-time processing based on image transformations.
+
+Moreover, in visual inspection, our method consistently demonstrates superior image quality, with reduced ghosting artifacts compared to both baseline algorithms. These subjective improvements will be further discussed in the following sections.
+
+Table 2.Results of Several Methods in Terms of Average NUES and Roughness Metrics Across Three Sets of Real-World Acquired Videos
+Method	DATA1	DATA2	DATA3
+	NUES	Roughness	NUES	Roughness	NUES	Roughness
+RAW	0.1264	0.0843	0.1229	0.0868	0.1956	0.1506
+FPNE	0.1067	0.0362	0.1216	0.0361	0.1166	0.0412
+NUCSP	0.0771	0.0279	0.0863	0.0296	0.0529	0.0223
+Ours	0.0781	0.0286	0.0886	0.0294	0.0567	0.0245
+
+\cref{fig:fig9} shows the NUES and Roughness curves obtained from Data 1. The original RAW images exhibit the highest NUES and Roughness across the entire sequence, indicating severe non-uniformity noise. In contrast, all three correction algorithms are effective in mitigating non-uniformity. Our proposed algorithm (referred to as "Ours") generally outperforms FPNE across most frames and achieves comparable performance to NUCSP.
+
+\cref{fig:fig10} illustrates the correction results of each algorithm on Data 1. Data 1 was acquired using our camera under manually adjusted dynamic range settings. The scene primarily consists of ground targets and is characterized by noticeable camera shake and abundant scene details, along with pronounced non-uniformity. Additionally, due to the full utilization of the dynamic range, the locations of blind pixels may vary. For FPNE, adapting to changes in blind pixel locations is particularly difficult; its underlying principle of error accumulation may result in ghosting artifacts caused by blind pixels. The richness of the scene, however, benefits the NUCSP algorithm, as it contributes to more consistent statistical characteristics and improved estimation accuracy. Visually, both our algorithm and the NUCSP algorithm yield satisfactory results, whereas FPNE exhibits noticeable ghosting artifacts due to blind pixel effects.
+
+   \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig9.png}
+    \caption{NUES and Roughness Curves for Different Processing Algorithm Results on Data 1.(a) NUES Curve (b) Roughness Curve}
+    \label{fig:fig9}
+\end{figure*}
+
+
+  \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig10.png}
+    \caption{Processed Images of Data 1 at Frames 1, 100, 200, 300, 400, and 500. (a)Raw images with true FPN;(b)FPNE\citep{liu_fpn_2019};(c)NUCSP\citep{dandan_nonuniformity_2024};(d)Ours  }
+    \label{fig:fig10}
+\end{figure*}
+ 
+
+
+\cref{fig:fig11} illustrates the NUES and Roughness curves obtained from Data 2. Our proposed algorithm (referred to as "Ours") generally outperforms FPNE across most frames and achieves performance comparable to NUCSP. \cref{fig:fig12} shows the correction results of each algorithm on Data 2. Data 2 was acquired using our camera under manually adjusted dynamic range settings. The data exhibits severe non-uniformity, with the scene mainly comprising distant buildings and the sky. It also includes low-temperature targets, such as air conditioning pipes located outside the buildings. Similar to Data 1, the full utilization of the dynamic range in Data 2 can lead to variations in blind pixel locations.
+
+As shown in \cref{fig:fig12}, FPNE not only needs to adapt to changes in blind pixel locations but also must cope with the impact of low-temperature pipes, leading to more severe ghosting artifacts in the corrected images. For the NUCSP algorithm, the irregular motion of low-temperature targets in the scene results in biased statistical outcomes, which in turn causes ghosting artifacts. This issue is particularly evident in Frame 400, where pronounced ghosting occurs when viewing sky regions. In contrast, our algorithm selectively extracts low-frequency temporal variations and fixed-position noise from the image, thereby exhibiting robust performance under such challenging conditions.
+
+  \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig11.png}
+    \caption{NUES and Roughness Curves for Different Processing Algorithm Results on Data 2.(a) NUES Curve (b) Roughness Curve}
+    \label{fig:fig11}
+\end{figure*}
+
+ 
+  \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig12.png}
+    \caption{Processed Images of Data 2 at Frames 1, 100, 200, 300, 400, and 500. (a)Raw images with true FPN;(b)FPNE\citep{liu_fpn_2019};(c)NUCSP\citep{dandan_nonuniformity_2024};(d)Ours}
+    \label{fig:fig12}
+\end{figure*}
+
+
+To validate our algorithm's convergence speed and stability, we selected different baseline learning rate parameters, $\alpha$, using Data 4 comprising 2000 frames. We then calculated the non-uniformity assessment metrics for the extracted gain images (K values) across the entire image sequence under each learning rate condition. \cref{fig:fig13} illustrates the NUES (a) and Roughness (b) curves with respect to frame number for different learning rates, comparing the performance differences among $\alpha$=0.1, $\alpha$=0.05, and $\alpha$=0.01.
+
+As shown in \cref{fig:fig13}  it is evident that a larger learning rate (e.g., $\alpha$=0.1) exhibits a faster NUES correction response during the initial frames but presents larger fluctuations in later frames, indicating reduced stability. Conversely, a smaller learning rate (e.g., $\alpha$=0.01), although slower to converge initially, yields a smoother overall NUES trend that stabilizes in the later stages, demonstrating better temporal consistency. A similar trend is observed in the Roughness metric (\cref{fig:fig13}(b)): while larger learning rates can quickly suppress non-uniformity in the early phase, this comes at the cost of somewhat reduced stability; in contrast, smaller learning rates show a slower but more consistent Roughness evolution.
+
+This indicates that although the convergence speed varies during the initial stages under different learning rates, stable and accurate gain estimation results can still be achieved after a sufficient number of frames, which validates the algorithm’s robustness under diverse parameter conditions. 
+
+
+   \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig13.png}
+    \caption{NUES and Roughness Curves of Extracted Gain Maps with Different Learning Rates for Data 4. (a) NUES Curve (b) Roughness Curve}
+    \label{fig:fig13}
+\end{figure*}
+
+To test how well our algorithm adapts to different optical systems, we kept the detector's dynamic range constant and replaced lenses during imaging. Subsequently, we applied our gain estimation algorithm to the resulting images. 
+
+\cref{fig:fig14} shows the gain images extracted under different lens conditions. The algorithm effectively captured the gain variations introduced by lens replacement, significantly reducing inconsistencies in image responses and improving overall imaging consistency and system stability.
+
+   \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{fig14.png}
+    \caption{Data 5 Acquired with Lens Switching. (a) Original Image; (b) Estimated Gain; (c) Corrected Image}
+    \label{fig:fig14}
+\end{figure*}
+
+The image algorithm validation was performed in MATLAB 2022b on a machine equipped with a 3.2 GHz processor and 16 GB of RAM. The proposed system was implemented on a Xilinx xc7a200tfbg484-2 FPGA platform equipped with 512 MB of DDR3 memory.
+
+To evaluate the performance and applicability of the developed infrared camera, we deployed it in various real-world scenarios. In indoor $\text{SF}_6$ gas leak detection experiments, because of the minimal ambient temperature difference, traditional infrared cameras with fixed dynamic ranges produced low-contrast images, hindering clear differentiation between the target gas and the background. In contrast, the proposed adaptive adjustment mechanism automatically adjusts imaging parameters based on scene brightness, thereby enhancing contrast. As shown in \cref{fig:fig15}(a) and \cref{fig:fig15}(b), with the dynamic range and gain adaptive functions enabled, the camera clearly captured the infrared characteristics of the leakage area, exhibiting markedly improved contrast compared to traditional systems.
+
+Furthermore, the camera was further employed for outdoor gas detection tasks and thermal imaging of human rhinitis conditions. Under varying illumination and temperature backgrounds, the camera consistently maintained excellent image quality and contrast, highlighting its strong adaptability and practical potential across diverse conditions. 
+
+
+   \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig15.png}
+    \caption{Performance of Our Camera in Real-World Scenarios (a) Adaptive Dynamic (b) Fixed Dynamic Range (c) Our Camera Used for External Environment Gas Leak Detection (d) Our Camera Used for Human Body Detection}
+    \label{fig:fig15}
+\end{figure*}
+
+
+
+\section{Results and Discussion}
+
+This study presents an in-depth analysis of the CTIA readout circuit in uncooled infrared focal plane detectors, with an emphasis on its influence on image dynamic range. We propose a dynamic range optimization algorithm which adaptively modulates the detector's response through bias control and integration time, thereby optimizing image quality in real time according to scene illumination. 
+
+To address the non-uniformity noise induced by dynamic range tuning, we introduce a gain estimation-based correction method, which effectively suppresses gain inconsistencies during scene transitions and parameter adjustments.
+
+Experiments confirm our adaptive dynamic range algorithm significantly improves image detail and contrast in low-dynamic scenes and enhances camera adaptability in high-dynamic conditions. The gain estimation algorithm provides efficient, stable image gain compensation without a blackbody source, converging rapidly within hundreds of frames, demonstrating strong real-time performance and stability.
+
+Building on these algorithms, we designed and implemented a prototype infrared camera system featuring both adaptive dynamic range and gain adjustment capabilities. This system, suitable for handheld infrared detection, delivers high-quality imaging performance and strong environmental adaptability, thereby demonstrating the engineering feasibility and practical value of the proposed method.
+
+However, the system still has limitations, such as a tendency to produce ghosting artifacts in static surveillance scenes and suboptimal performance in terms of power efficiency and hardware resource usage. Future research will focus on further adaptation and optimization of the system for diverse application scenarios.
+
+
+% Numbered list
+% Use the style of numbering in square brackets.
+% If nothing is used, default style will be taken.
+%\begin{enumerate}[a)]
+%\item 
+%\item 
+%\item 
+%\end{enumerate}  
+
+% Unnumbered list
+%\begin{itemize}
+%\item 
+%\item 
+%\item 
+%\end{itemize}  
+
+% Description list
+%\begin{description}
+%\item[]
+%\item[] 
+%\item[] 
+%\end{description}  
+
+% Figure
+% \begin{figure}[<options>]
+% 	\centering
+% 		\includegraphics[<options>]{}
+% 	  \caption{}\label{fig1}
+% \end{figure}
+
+
+% \begin{table}[<options>]
+% \caption{}\label{tbl1}
+% \begin{tabular*}{\tblwidth}{@{}LL@{}}
+% \toprule
+%   &  \\ % Table header row
+% \midrule
+%  & \\
+%  & \\
+%  & \\
+%  & \\
+% \bottomrule
+% \end{tabular*}
+% \end{table}
+
+% Uncomment and use as the case may be
+%\begin{theorem} 
+%\end{theorem}
+
+% Uncomment and use as the case may be
+%\begin{lemma} 
+%\end{lemma}
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+
+
+% To print the credit authorship contribution details
+% \printcredits
+
+%% Loading bibliography style file
+%\bibliographystyle{model1-num-names}
+\bibliographystyle{unsrt}     % 使编号按引用顺序排序
+\bibliographystyle{cas-model2-names}
+
+% Loading bibliography database
+\bibliography{Elsevier_ref}
+
+% Biography
+% \bio{}
+% % Here goes the biography details.
+% \endbio
+
+% \bio{pic1}
+% % Here goes the biography details.
+% \endbio
+
+\end{document}
+
